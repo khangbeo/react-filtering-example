@@ -1,11 +1,14 @@
 import React from "react";
- 
-const Card = ({ item }) => {            
+import Modal from './Modal' 
+
+const Card = ({ item, isOpen, setIsOpen }) => {            
+
+
   return (
     <>
       <div className="container-fluid">
         <div className="row justify-content-center">
-
+          {isOpen && <Modal setIsOpen={setIsOpen} />}
           {item.map((Val) => {
             return (
               <div
@@ -13,7 +16,7 @@ const Card = ({ item }) => {
                 key={Val.id}
               >
                 <div className="card-img-top text-center">
-                  <img src={Val.img} alt={Val.title} className="photo w-75" />
+                  <img src={Val.img} alt={Val.title} className={`photo w-75`} role='button' onClick={() => setIsOpen(true)} />
                 </div>
                 <div className="card-body">
                   <div className="card-title fw-bold fs-4">
