@@ -20,7 +20,7 @@ const Card = ({ item, isOpen, setIsOpen }) => {
                 </div>
                 <div className="card-body">
                   <div className="card-title fw-bold fs-4">
-                    {Val.title} &nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;
+                    {Val.title} &nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;
                     {Val.price}
                   </div>
                   <div className="card-text">{Val.desc}</div>
