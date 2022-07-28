@@ -5,12 +5,16 @@ import Buttons from './components/Buttons'
 import "./style.css";
 
 export default function App() {
+  // keep track of current list of item to render
   const [item, setItem] = useState(Data)
+  // keep track of modal state
   const [isOpen, setIsOpen] = useState(false)
+  // create a new set with unique category
   const menuItems = [...new Set(Data.map((Val) => Val.category))];
 
-
+  // handle filter
   const filterItem = (curcat) => {
+    // take Data array, returns an array where its current element's category matches the function's parameter
     const newItem = Data.filter((newVal) => newVal.category === curcat);
     setItem(newItem);
   };

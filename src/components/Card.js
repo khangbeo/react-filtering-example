@@ -2,19 +2,20 @@ import React from "react";
 import Modal from './Modal' 
 
 const Card = ({ item, isOpen, setIsOpen }) => {            
-
-
   return (
     <>
       <div className="container-fluid">
         <div className="row justify-content-center">
+          {/* check if modal is open */}
           {isOpen && <Modal setIsOpen={setIsOpen} />}
+          {/* maps out the current items in the item state */}
           {item.map((Val) => {
             return (
               <div
                 className="col-md-4 col-sm-6 card my-3 py-3 border-0"
                 key={Val.id}
               >
+                {/* image opens modal */}
                 <div className="card-img-top text-center">
                   <img src={Val.img} alt={Val.title} className={`photo w-75`} role='button' onClick={() => setIsOpen(true)} />
                 </div>
