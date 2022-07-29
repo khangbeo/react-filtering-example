@@ -13,7 +13,7 @@ export default function App() {
   const menuItems = [...new Set(Data.map((Val) => Val.category))];
 
   const [formData, setFormData] = useState({
-    id: new Date(),
+    id: Date.now(),
     title: '',
     category: '',
     price: '',
@@ -21,7 +21,6 @@ export default function App() {
     desc: '',
   });
 
-  console.log(formData);
   const handleChange = ({ target }) => {
     setFormData({
       ...formData,
@@ -30,9 +29,7 @@ export default function App() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const controller = new AbortController();
     item.push(formData);
-    return () => controller.abort();
   };
 
   // handle filter
