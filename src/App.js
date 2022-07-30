@@ -12,26 +12,6 @@ export default function App() {
   // create a new set with unique category
   const menuItems = [...new Set(Data.map((Val) => Val.category))];
 
-  const [formData, setFormData] = useState({
-    id: Date.now(),
-    title: '',
-    category: '',
-    price: '',
-    img: '',
-    desc: '',
-  });
-
-  const handleChange = ({ target }) => {
-    setFormData({
-      ...formData,
-      [target.name]: target.value,
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    item.push(formData);
-  };
-
   // handle filter
   const filterItem = (curcat) => {
     // take Data array, returns an array where its current element's category matches the function's parameter
@@ -49,84 +29,6 @@ export default function App() {
             menuItems={menuItems}
             setItem={setItem}
           />
-
-          <div className="d-flex justify-content-center mt-4">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="title">Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="title"
-                  name="title"
-                  placeholder="Title"
-                  value={formData.title}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="category">Category</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="category"
-                  name="category"
-                  placeholder="Category"
-                  value={formData.category}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="price">Price</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="price"
-                  name="price"
-                  placeholder="Price"
-                  value={formData.price}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="img">Image</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="img"
-                  name="img"
-                  placeholder="Image"
-                  value={formData.image}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="desc">Description</label>
-                <input
-                  rows="4"
-                  cols="50"
-                  className="form-control"
-                  id="desc"
-                  name="desc"
-                  placeholder="Description"
-                  value={formData.desc}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Add New Item
-              </button>
-            </form>
-          </div>
 
           <Card item={item} isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
